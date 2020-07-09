@@ -14,25 +14,30 @@ class AlumniController extends Controller
         return view('alumni.index',compact('alumni'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('alumni.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        
+        $this->validate($request, [
+            'name' => 'required|string|max:100',
+            'nim' => 'required|unique:Alumni,nim',
+            'email' => 'required|email',
+            'telepon' => 'required'
+        ]);
+
+        Alumni::create([
+            'name' => $request->name,
+            'nim' => $request->nim,
+            'email' => $request->email,
+            'password' => bcrypt($request->nim),
+            'telepon' => $request->telepon
+        ]);
+        
+        return redirect(route('admin.alumni.index'));
     }
 
     /**

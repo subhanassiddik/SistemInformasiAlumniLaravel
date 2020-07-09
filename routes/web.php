@@ -20,6 +20,8 @@ Route::group(['prefix' => 'admin','as'=>'admin.'], function () {
     Route::get('/', 'AdminController@index')->name('home');    
     
     route::get('/alumni','AlumniController@index')->name('alumni.index');
+    route::get('/alumni/create','AlumniController@create')->name('alumni.create');
+    route::post('/alumni','AlumniController@store')->name('alumni.store');
 
     Route::group(['namespace' => 'AuthAdmin'], function () {
         Route::post('/login', 'LoginController@login')->name('login.submit');    

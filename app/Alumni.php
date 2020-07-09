@@ -10,9 +10,12 @@ class Alumni extends Authenticatable
 {
     use Notifiable;
 
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+
+    protected $guarded = [];
+    
+    // protected $fillable = [
+    //     'name', 'email', 'password',
+    // ];
 
     protected $hidden = [
         'password', 'remember_token',
