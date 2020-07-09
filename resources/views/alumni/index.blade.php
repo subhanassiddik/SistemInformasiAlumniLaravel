@@ -36,21 +36,41 @@
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
+                <th>Action</th>
                 <th>Name</th>
-                <th>Position</th>
+                <th>Nim</th>
+                <th>Email</th>
+                <th>Telepon</th>
               </tr>
             </thead>
             <tfoot>
               <tr>
+                <th>Action</th>
                 <th>Name</th>
-                <th>Position</th>
+                <th>Nim</th>
+                <th>Email</th>
+                <th>Telepon</th>
               </tr>
             </tfoot>
             <tbody>
             @foreach($alumni as $al)
               <tr>
-                <td>{{$al->name}}</td>
-                <td>{{$al->email}}</td>
+                <td>
+                <form action="{{route('admin.alumni.update',$al->id)}}" method="post" class="d-inline">
+                  @csrf
+                  @method('PUT')
+                  <button type="submit" class="btn btn-warning">Update</button>
+                </form>
+                <form action="{{route('admin.alumni.delete',$al->id)}}" method="post" class="d-inline">
+											@csrf
+											@method('delete')
+											<button type="submit" class="btn btn-danger">Delete</button>
+										</form>
+                </td>
+                <td><input type="email" class="form-control" value="{{$al->name}}" style="border-style: none;"><span style="display:none">{{$al->name}}</span></td>
+                <td><input type="email" class="form-control" value="{{$al->email}}"><span style="display:none">{{$al->email}}</span></td>
+                <td><input type="email" class="form-control" value="{{$al->nim}}"><span style="display:none">{{$al->nim}}</span></td>
+                <td><input type="email" class="form-control" value="{{$al->telepon}}"><span style="display:none">{{$al->telepon}}</span></td>
               </tr>
             @endforeach
             </tbody>
@@ -71,17 +91,17 @@
         dom:'lBfrtip',
         buttons: [
           'copy','print','excel', 'pdf',
-          {
-                extend: 'print',
-                text: 'Print selected',
-                exportOptions: {
-                    modifier: {
-                        selected: null
-                    }
-                }
-            }
+          // {
+          //       extend: 'print',
+          //       text: 'Print selected',
+          //       exportOptions: {
+          //           modifier: {
+          //               selected: null
+          //           }
+          //       }
+          //   }
         ],
-        select : true,
+        // select : true,
          
       });
       
