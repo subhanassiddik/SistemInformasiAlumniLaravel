@@ -17,27 +17,53 @@
           <div class="col-lg-6">
             <a class="btn btn-primary" href="{{route('admin.alumni.create')}}" role="button"><i class="fa fa-fw fa-plus"></i> Tambah Data Alumni</a>
           </div>
-          <div class="col-lg-6">
-            <div class="col-lg-6"> 
-              <select name="" class="form-control">
-                <option value="">Filter</option>
-                <option value="">Bekerja</option>
-                <option value="">Tidak Bekerja</option>
-              </select>
-              <button type="button" class="btn btn-primary">filter</button>
+            <div class="col-lg-6">
+                <form action="" method="POST">
+                    @csrf
+                    <select name="bekerja" class="form-control float-right w-50" >
+                      <option>filter</option>
+                      <option value="1">Bekerja</option>
+                      <option value="0">Tidak Bekerja</option>
+                    </select>
+                    <button type="button" class="btn btn-primary float-right mr-2">submit</button>
+                </form>
             </div>
-          </div>
-      </div>
+        </div>
       </div>
     </div>
+
     <div class="card shadow mb-2">  
       <div class="card-body">
+      @if (session('success'))
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{ session('success')}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      @endif
+      @if (session('destroy'))
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{ session('destroy')}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      @endif
+      @if (session('edit'))
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{ session('edit')}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      @endif
         <div class="table-responsive">
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
                 <th>Action</th>
-                <th>Name</th>
+                <th>Nama</th>
                 <th>Nim</th>
                 <th>Email</th>
                 <th>Telepon</th>
@@ -46,7 +72,7 @@
             <tfoot>
               <tr>
                 <th>Action</th>
-                <th>Name</th>
+                <th>Nama</th>
                 <th>Nim</th>
                 <th>Email</th>
                 <th>Telepon</th>
@@ -56,21 +82,18 @@
             @foreach($alumni as $al)
               <tr>
                 <td>
-                <form action="{{route('admin.alumni.update',$al->id)}}" method="post" class="d-inline">
-                  @csrf
-                  @method('PUT')
-                  <button type="submit" class="btn btn-warning">Update</button>
-                </form>
                 <form action="{{route('admin.alumni.delete',$al->id)}}" method="post" class="d-inline">
 											@csrf
 											@method('delete')
 											<button type="submit" class="btn btn-danger">Delete</button>
-										</form>
+                </form>
+                <a class="btn btn-warning" href="{{route('admin.alumni.edit',$al->id)}}" role="button">Edit</a>
+                <a class="btn btn-info" href="#" role="button">Show</a>
                 </td>
-                <td><input type="email" class="form-control" value="{{$al->name}}" style="border-style: none;"><span style="display:none">{{$al->name}}</span></td>
-                <td><input type="email" class="form-control" value="{{$al->email}}"><span style="display:none">{{$al->email}}</span></td>
-                <td><input type="email" class="form-control" value="{{$al->nim}}"><span style="display:none">{{$al->nim}}</span></td>
-                <td><input type="email" class="form-control" value="{{$al->telepon}}"><span style="display:none">{{$al->telepon}}</span></td>
+                <td>{{$al->name}}</td>
+                <td>{{$al->nim}}</td>
+                <td>{{$al->email}}</td>
+                <td>{{$al->telepon}}</td>
               </tr>
             @endforeach
             </tbody>
@@ -91,20 +114,18 @@
         dom:'lBfrtip',
         buttons: [
           'copy','print','excel', 'pdf',
-          // {
-          //       extend: 'print',
-          //       text: 'Print selected',
-          //       exportOptions: {
-          //           modifier: {
-          //               selected: null
-          //           }
-          //       }
-          //   }
+          {
+                extend: 'print',
+                text: 'Print selected',
+                exportOptions: {
+                    modifier: {
+                        selected: null
+                    }
+                }
+            }
         ],
-        // select : true,
-         
+        select : true,         
       });
-      
 } );
 </script>
 @endpush

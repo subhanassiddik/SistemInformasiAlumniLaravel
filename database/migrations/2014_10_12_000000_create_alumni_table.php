@@ -17,12 +17,12 @@ class CreateAlumniTable extends Migration
             $table->bigIncrements('id');
             $table->string('photo')->nullable();
             $table->string('name');
-            $table->integer('nim')->nullable();
+            $table->bigInteger('nim')->nullable();
             $table->string('tugas_akhir')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('telepon')->nullable();
+            $table->bigInteger('telepon')->nullable();
             $table->char('jenis_kelamin')->nullable();
             $table->string('ipk',10)->nullable();
             $table->date('tahun_lulus')->nullable();

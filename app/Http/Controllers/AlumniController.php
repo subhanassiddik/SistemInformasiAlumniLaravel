@@ -37,13 +37,28 @@ class AlumniController extends Controller
             'telepon' => $request->telepon
         ]);
         
-        return redirect(route('admin.alumni.index'));
+        return redirect(route('admin.alumni.index'))->with('success', 'Data Alumni Berhasil Ditambah ');
     }
+
+    public function edit($id)
+    {
+        $alumni = Alumni::findOrFail($id);
+
+        return view('alumni.edit',compact('alumni'));
+    }
+
 
     public function update(Request $request, $id)
     {   
-        dd($request);
-        $alumni = Alumni::where('id',$id)->first();
+        $this->validate($request, [
+            'name' => 'required|string|max:100',
+            'nim' => 'required',
+            'email' => 'required|email',
+            'telepon' => 'required'
+        ]);
+
+        $alumni = Alumni::findOrfail($id);
+
         $alumni->update([
             'name' => $request->name,
             'nim' => $request->nim,
@@ -52,7 +67,7 @@ class AlumniController extends Controller
             'telepon' => $request->telepon
         ]);
 
-        return redirect(route('admin.alumni.index'));
+        return redirect(route('admin.alumni.index'))->with('edit', 'Data Alumni Berhasil Edit ');
     }
 
     public function destroy($id)
@@ -60,6 +75,6 @@ class AlumniController extends Controller
         $alumni = Alumni::findOrFail($id);
         $alumni->delete();
 
-        return redirect(route('admin.alumni.index'));
+        return redirect(route('admin.alumni.index'))->with('destroy', 'Data Alumni Berhasil Hapus ');
     }
 }

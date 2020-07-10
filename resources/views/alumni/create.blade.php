@@ -23,21 +23,32 @@
             
             @csrf  
             <div class="form-group">
-                <label for="exampleInputPassword1">Nama</label>
-                <input type="text" name="name" class="form-control" id="exampleInputPassword1">
+                <label for="name">Nama</label>
+                <input type="text" name="name" class="form-control" id="name" value="{{old('nim')}}">
+                @error('name')
+                  <small class="form-text text-muted">{{$message}}</small>
+                @enderror
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Nim</label>
-                <input type="text" name="nim" class="form-control" id="exampleInputPassword1">
-                </div>
+                <label for="nim">Nim</label>
+                <input type="number" name="nim" class="form-control" id="nim" value="{{old('nim')}}">
+                @error('nim')
+                  <small class="form-text text-muted">{{$message}}</small>
+                @enderror
+            </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
-                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{old('email')}}">
+                @error('email')
+                  <small class="form-text text-muted">{{$message}}</small>
+                @enderror
             </div>
             <div class="form-group">
-                <label for="">No Telp</label>
-                <input type="text" name="telepon" class="form-control">
+                <label for="telepon">No Telp</label>
+                <input type="number" name="telepon" class="form-control" id="telepon" value="{{old('telepon')}}">
+                @error('telepon')
+                  <small class="form-text text-muted">{{$message}}</small>
+                @enderror
             </div>
 
         <button type="submit" class="btn btn-primary">Tambah</button>
