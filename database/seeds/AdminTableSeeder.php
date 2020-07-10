@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
-class AdminTableSeeder extends Seederr
+use App\Admin;
+class AdminTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class AdminTableSeeder extends Seederr
         \App\Admin::create([
             'name'  => 'admin',
             'email' => 'admin@admin.com',
-            'password'  => bcrypt('secret')
+            'password'  => bcrypt('password')
         ]);
     }
 }

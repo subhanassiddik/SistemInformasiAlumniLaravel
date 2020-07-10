@@ -20,6 +20,7 @@ Route::group(['prefix' => 'admin','as'=>'admin.'], function () {
     Route::PUT('/alumni/{id}','AlumniController@update')->name('alumni.update');
     Route::get('/{id}/edit','AlumniController@edit')->name('alumni.edit');
     Route::delete('/alumni/{id}','AlumniController@destroy')->name('alumni.delete');
+    Route::post('/alumni/import_excel', 'AlumniController@import_excel')->name('alumni.import_excel');
 });
 
 Auth::routes();

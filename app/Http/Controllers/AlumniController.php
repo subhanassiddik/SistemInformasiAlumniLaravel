@@ -4,13 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Alumni;
+use App\Imports\AlumniImport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
 
 class AlumniController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {   
-        $alumni = alumni::all();
+        // dd(request()->kerja);
+        if (!empty(request()->kerja))
+            $alumni = alumni::where('kerja',request()->kerja)->get();
+        else
+            $alumni = alumni::all();
+            
         return view('alumni.index',compact('alumni'));
     }
 
@@ -77,4 +85,22 @@ class AlumniController extends Controller
 
         return redirect(route('admin.alumni.index'))->with('destroy', 'Data Alumni Berhasil Hapus ');
     }
+
+    public function import_excel(Request $request) 
+	{  
+		
+		$this->validate($request, [
+			'file' => 'required|mimes:csv,xls,xlsx'
+		]);
+		// menangkap file excel
+		$file = $request->file('file');
+		// membuat nama file unik
+		$nama_file = rand().$file->getClientOriginalName();
+		// upload ke folder file_siswa di dalam folder public
+		$file->move('file_alumni_excel',$nama_file);
+        // import data
+        Excel::import(new AlumniImport, public_path('/file_alumni_excel/'.$nama_file));
+		
+        return redirect(route('admin.alumni.index'))->with('success', 'Data Alumni Excel Berhasil Ditambahkan');
+	}
 }

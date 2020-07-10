@@ -18,14 +18,15 @@
             <a class="btn btn-primary" href="{{route('admin.alumni.create')}}" role="button"><i class="fa fa-fw fa-plus"></i> Tambah Data Alumni</a>
           </div>
             <div class="col-lg-6">
-                <form action="" method="POST">
+                <form action="{{route('admin.alumni.index')}}" method="GET">
                     @csrf
-                    <select name="bekerja" class="form-control float-right w-50" >
-                      <option>filter</option>
+                    <select name="kerja" class="form-control float-right w-50" >
+                      <option value="">Pilih Status</option>
                       <option value="1">Bekerja</option>
-                      <option value="0">Tidak Bekerja</option>
+                      <option value="2">Tidak Bekerja</option>
                     </select>
-                    <button type="button" class="btn btn-primary float-right mr-2">submit</button>
+                    <button type="submit" class="btn btn-primary float-right mr-2">Filter</button>
+                
                 </form>
             </div>
         </div>
@@ -67,6 +68,7 @@
                 <th>Nim</th>
                 <th>Email</th>
                 <th>Telepon</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tfoot>
@@ -76,6 +78,7 @@
                 <th>Nim</th>
                 <th>Email</th>
                 <th>Telepon</th>
+                <th>Status</th>
               </tr>
             </tfoot>
             <tbody>
@@ -94,6 +97,13 @@
                 <td>{{$al->nim}}</td>
                 <td>{{$al->email}}</td>
                 <td>{{$al->telepon}}</td>
+                <td>
+                    @if($al->kerja == 1)
+                    kerja
+                    @else
+                    belum kerja
+                    @endif                    
+                </td>
               </tr>
             @endforeach
             </tbody>

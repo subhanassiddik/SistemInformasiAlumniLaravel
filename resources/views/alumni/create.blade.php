@@ -67,12 +67,22 @@
       </div>
       <div class="card-body">
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">Batch Input</button>
+            <form method="post" action="{{route('admin.alumni.import_excel')}}" enctype="multipart/form-data">
+            @csrf
+              <div class="form-group">
+                <input name="file" type="file" class="form-control-file" >
+                @error('file')
+                  <small class="form-text text-muted">{{$message}}</small>
+                @enderror
+              </div>
+            <button type="submit" class="btn btn-primary">Tambah</button>
+            </form>
         </div>
-        </a>
       </div>
     </div>
-
+    <div class="alert alert-danger" role="alert">
+          <strong>Peringatan !!! Silahkan Download Contoh Struktur Penulisan <a href="{{asset('/file_alumni_excel/contoh/Contoh.xlsx')}}"> di Sini </a>, Agar Urutan Data Sesuai .</strong>   
+    </div>
   </div>
 
 </div>
