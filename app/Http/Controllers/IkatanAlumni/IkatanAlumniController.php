@@ -36,12 +36,6 @@ class IkatanAlumniController extends Controller
         return redirect(route('admin.ikatan_alumni.index'))->with('success','Posting Berita Berhasil');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
 

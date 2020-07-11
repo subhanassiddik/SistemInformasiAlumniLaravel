@@ -30,6 +30,10 @@ Route::group(['prefix' => 'admin','as'=>'admin.'], function () {
         Route::PUT('/ikatan_alumni/{id}','IkatanAlumniController@update')->name('ikatan_alumni.update');
         Route::delete('/ikatan_alumni/{id}','IkatanAlumniController@destroy')->name('ikatan_alumni.delete');
     });
+
+    Route::group(['namespace' => 'Prodi'], function () {
+        Route::resource('prodi', 'ProdiController');
+    });
 });
 
 // route login alumni
