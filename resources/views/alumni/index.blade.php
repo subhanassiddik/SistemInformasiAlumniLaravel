@@ -124,7 +124,7 @@
         dom:'lBfrtip',
         buttons: [
           'copy','print','excel', 'pdf',
-          {
+            {
                 extend: 'print',
                 text: 'Print selected',
                 exportOptions: {

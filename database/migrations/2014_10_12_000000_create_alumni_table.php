@@ -36,6 +36,8 @@ class CreateAlumniTable extends Migration
             $table->string('tanggung_jawab_khusus')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+            $table->string('nama_mempelai');
         });
     }
 

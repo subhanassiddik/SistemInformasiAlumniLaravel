@@ -36,7 +36,7 @@
       </li>
    
       <li class="nav-item">
-          <a class="nav-link" href="">
+          <a class="nav-link" href="{{route('admin.ikatan_alumni.index')}}">
             <i class="fas fa-fw far fa-address-book"></i>
             <span>Ikatan Alumni</span>
           </a>
@@ -79,10 +79,15 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="" onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
           <i class="fas fa-fw fa-key"></i>
           <span>Log Out</span></a>
       </li>
+
+      <form id="logout-form" action="{{ route('admin.logout') }}" method="GET" style="display: none;">
+          @crsf
+      </form>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
