@@ -29,10 +29,6 @@ class ProdiController extends Controller
         return redirect(route('admin.prodi.index'))->with('success','Prodi Berhasil Di tambah');
     }
 
-    public function edit($id)
-    {
-			
-    }
 
     public function update(Request $request,$id)
     {   

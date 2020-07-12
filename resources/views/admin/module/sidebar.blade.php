@@ -70,8 +70,8 @@
             <a class="collapse-item" href="{{route('admin.jurusan.index')}}">Jurusan</a>
             <div class="collapse-divider"></div>
             <h6 class="collapse-header">Other:</h6>
-            <a class="collapse-item" href="404.html">Daftar Angkatan/Alumni</a>
-            <a class="collapse-item" href="blank.html">Bidang Pekerjaan</a>
+            <a class="collapse-item" href="{{route('admin.kelulusan.index')}}">Daftar Angkatan/Alumni</a>
+            <a class="collapse-item" href="{{route('admin.bidang_pekerjaan.index')}}">Bidang Pekerjaan</a>
             <a class="collapse-item" href="blank.html">Info Penting</a>
           </div>
         </div>

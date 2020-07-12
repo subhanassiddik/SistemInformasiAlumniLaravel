@@ -4,6 +4,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::group(['prefix' => 'admin','as'=>'admin.'], function () {
     
     Route::get('/', 'AdminController@index')->name('home');    
@@ -31,12 +33,23 @@ Route::group(['prefix' => 'admin','as'=>'admin.'], function () {
         Route::delete('/ikatan_alumni/{id}','IkatanAlumniController@destroy')->name('ikatan_alumni.delete');
     });
 
+    Route::group(['namespace' => 'Kelulusan'], function () {
+        Route::resource('kelulusan', 'KelulusanController');
+    });
+
     Route::group(['namespace' => 'Prodi'], function () {
         Route::resource('prodi', 'ProdiController');
     });
     Route::group(['namespace' => 'Jurusan'], function () {
         Route::resource('jurusan', 'JurusanController');
     });
+
+    Route::group(['namespace' => 'BidangPekerjaan'], function () {
+        Route::resource('bidang_pekerjaan', 'BidangPekerjaanController');
+    });
+
+
+
 });
 
 // route login alumni
