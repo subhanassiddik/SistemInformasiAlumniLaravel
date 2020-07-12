@@ -34,9 +34,9 @@ class ProdiController extends Controller
 			
     }
 
-    public function update(Request $request)
+    public function update(Request $request,$id)
     {   
-        $prodi = Prodi::findOrFail($request->id);
+        $prodi = Prodi::findOrFail($id);
         
         $prodi->update([
             'prodi'=>$request->prodi

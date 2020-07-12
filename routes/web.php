@@ -34,6 +34,9 @@ Route::group(['prefix' => 'admin','as'=>'admin.'], function () {
     Route::group(['namespace' => 'Prodi'], function () {
         Route::resource('prodi', 'ProdiController');
     });
+    Route::group(['namespace' => 'Jurusan'], function () {
+        Route::resource('jurusan', 'JurusanController');
+    });
 });
 
 // route login alumni
