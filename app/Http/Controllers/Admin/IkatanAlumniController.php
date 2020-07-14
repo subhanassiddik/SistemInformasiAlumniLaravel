@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\IkatanAlumni;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,12 +13,12 @@ class IkatanAlumniController extends Controller
     {   
         $IkatanAlumni = IkatanAlumni::All();
 
-        return view('IkatanAlumni.index',compact('IkatanAlumni'));
+        return view('admin.IkatanAlumni.index',compact('IkatanAlumni'));
     }
 
     public function create()
     {
-        return view('IkatanAlumni.create');
+        return view('admin.IkatanAlumni.create');
     }
 
     public function store(Request $request)
@@ -36,16 +36,11 @@ class IkatanAlumniController extends Controller
         return redirect(route('admin.ikatan_alumni.index'))->with('success','Posting Berita Berhasil');
     }
 
-    public function show($id)
-    {
-
-    }
-
     public function edit($id)
     {
         $ika = IkatanAlumni::findOrFail($id);
         
-        return view('IkatanAlumni.edit',compact('ika'));
+        return view('admin.IkatanAlumni.edit',compact('ika'));
     }
 
     public function update(Request $request, $id)

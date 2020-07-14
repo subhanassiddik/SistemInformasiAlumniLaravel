@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\BidangPekerjaan;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,7 +11,7 @@ class BidangPekerjaanController extends Controller
     public function index()
     {
         $BidangPekerjaan = BidangPekerjaan::All();
-        return view('BidangPekerjaan.index',compact('BidangPekerjaan'));
+        return view('admin.BidangPekerjaan.index',compact('BidangPekerjaan'));
     }
 
     public function store(Request $request)

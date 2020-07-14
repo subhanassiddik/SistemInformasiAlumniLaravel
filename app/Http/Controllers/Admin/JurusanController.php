@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Jurusan;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,7 +14,7 @@ class JurusanController extends Controller
     {
         $prodi = Prodi::all();
         $jurusan = Jurusan::all();
-        return view('jurusan.index',compact('jurusan','prodi'));
+        return view('admin.jurusan.index',compact('jurusan','prodi'));
     }
 
     public function store(Request $request)

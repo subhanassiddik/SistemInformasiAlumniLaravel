@@ -26,4 +26,10 @@ class Alumni extends Authenticatable
     ];
 
     protected $table = 'alumni';
+
+    public function jurusan()
+    {
+        return $this->belongsTo('App\Jurusan');
+    }
+
 }

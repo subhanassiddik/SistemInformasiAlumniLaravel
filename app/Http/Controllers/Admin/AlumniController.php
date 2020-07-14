@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Alumni;
@@ -19,12 +19,12 @@ class AlumniController extends Controller
         else
             $alumni = alumni::all();
             
-        return view('alumni.index',compact('alumni'));
+        return view('admin.alumni.index',compact('alumni'));
     }
 
     public function create()
     {
-        return view('alumni.create');
+        return view('admin.alumni.create');
     }
 
     public function store(Request $request)
@@ -52,7 +52,7 @@ class AlumniController extends Controller
     {
         $alumni = Alumni::findOrFail($id);
 
-        return view('alumni.edit',compact('alumni'));
+        return view('admin.alumni.edit',compact('alumni'));
     }
 
 

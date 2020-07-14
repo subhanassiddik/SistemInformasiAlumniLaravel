@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIkatanAlumniTable extends Migration
+class AddFieldAlamatToAlumniTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateIkatanAlumniTable extends Migration
      */
     public function up()
     {
-        Schema::create('ikatan_alumni', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('judul');
-            $table->text('postingan');
-            $table->timestamps();
+        Schema::table('alumni', function (Blueprint $table) {
+            $table->string('alamat')->after('telepon')->nullable();
         });
     }
 
@@ -28,6 +25,8 @@ class CreateIkatanAlumniTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ikatan_alumni');
+        Schema::table('alumni', function (Blueprint $table) {
+            $table->dropColumn('alamat');
+        });
     }
 }

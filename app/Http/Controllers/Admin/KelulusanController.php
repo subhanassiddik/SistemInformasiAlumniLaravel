@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Kelulusan;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,7 +13,7 @@ class KelulusanController extends Controller
         
         $kelulusan = Kelulusan::all();
         
-        return view('kelulusan.index',compact('kelulusan'));
+        return view('admin.kelulusan.index',compact('kelulusan'));
     }
 
     public function store(Request $request)

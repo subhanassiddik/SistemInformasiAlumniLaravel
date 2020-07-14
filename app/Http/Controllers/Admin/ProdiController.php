@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Prodi;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,7 +12,7 @@ class ProdiController extends Controller
     public function index()
     {   
         $prodi = Prodi::all();
-        return view('prodi.index',compact('prodi'));
+        return view('admin.prodi.index',compact('prodi'));
     }
 
     public function store(Request $request)
