@@ -17,7 +17,7 @@ class CreateAlumniTable extends Migration
         Schema::create('alumni', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('photo')->nullable();
+            $table->string('photo')->default('default.jpg')->nullable();
 
             $table->string('name');
             $table->string('nim')->nullable();

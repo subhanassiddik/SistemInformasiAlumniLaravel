@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-body text-center bg-primary rounded-top">
                         <div class="user-box">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user avatar">
+                            <img src="{{asset('/file_alumni_profil/'.Auth::user()->photo)}}" alt="user avatar">
                         </div>
                         <h5 class="mb-1 text-white">{{ Auth::user()->name }}</h5>
                     </div>
@@ -130,7 +130,7 @@
                             <!--/row-->
                         </div>
                         <div class="tab-pane" id="edit">
-                            <form action="{{route('alumni.update',Auth::user()->id )}}" method="POST">
+                            <form action="{{route('alumni.update',Auth::user()->id )}}" method="POST" enctype="multipart/form-data" >
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group row">
@@ -169,7 +169,7 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Change profile</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="file">
+                                        <input class="form-control" type="file" name="photo" value="{{Auth::user()->photo}}">
                                     </div>
                                 </div>
                                 <div class="form-group row">

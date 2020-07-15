@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Jurusan;
 use App\Kelulusan;
 use App\Alumni;
+use Image;
 
 class HomeController extends Controller
 {
@@ -54,12 +55,23 @@ class HomeController extends Controller
             'tahun_lulus' => 'required',
             'status' => 'required',
         ]);
-            
+
+        
         $alumni = Alumni::findOrFail($id);
         
         $password = $request->password != '' ? bcrypt($request->password):$alumni->password;
         
+        if ($request->hasFile('photo')) 
+        {
+            $avatar = $request->file('photo');
+            $filename = time().'.'.$avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300,300)->save(public_path('/file_alumni_profil/'.$filename));
+        }else{
+            $filename = $alumni->photo;
+        }
+        
         $alumni->update([
+            'photo' => $filename,
             'name'=>$request->name,
             'nim'=>$request->nim,
             'tugas_akhir'=>$request->tugas_akhir,
