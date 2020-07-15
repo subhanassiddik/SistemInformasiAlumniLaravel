@@ -64,10 +64,10 @@ class Handler extends ExceptionHandler
               break;
              
             default:
-              $login='login';
+              $login='front.index';
               break;
           }
 
-        return redirect()->guest(route($login));
+        return redirect()->guest(route($login))->with('perhatian','Silahkan login terlebih dahulu');
     }
 }

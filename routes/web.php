@@ -1,9 +1,19 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+//front Of
+
+Route::group(['namespace'=>'Front','as' => 'front.'], function () {
+    Route::get('/','FrontController@index')->name('index');
+    Route::get('/grafik','GrafikController@index')->name('grafik.index');
 });
 
+
+
+//route admin
 
 Route::group(['prefix' => 'admin','as'=>'admin.'], function () {
     
