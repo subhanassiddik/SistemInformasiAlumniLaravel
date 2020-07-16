@@ -10,10 +10,10 @@ class KelulusanController extends Controller
 {
     public function index()
     {
-        
+        $year = date('Y');
         $kelulusan = Kelulusan::all();
         
-        return view('admin.kelulusan.index',compact('kelulusan'));
+        return view('admin.kelulusan.index',compact('kelulusan','year'));
     }
 
     public function store(Request $request)

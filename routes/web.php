@@ -9,6 +9,8 @@
 Route::group(['namespace'=>'Front','as' => 'front.'], function () {
     Route::get('/','FrontController@index')->name('index');
     Route::get('/grafik','GrafikController@index')->name('grafik.index');
+    Route::get('/daftar_alumni','AlumniController@index')->name('alumni.index');
+    Route::get('/ikatan_alumni','IkatanAlumniController@index')->name('ikatan_alumni.index');
 });
 
 

@@ -34,12 +34,14 @@ class CreateAlumniTable extends Migration
             
             $table->tinyInteger('kerja')->default('2');
             $table->year('tahun_mulai_kerja')->nullable();
-            $table->string('pekerjaan')->nullable();
+
             $table->string('posisi')->nullable();
             $table->string('tanggung_jawab_khusus')->nullable();
             
             $table->rememberToken();
             $table->timestamps();
+
+            
             
         });
     }

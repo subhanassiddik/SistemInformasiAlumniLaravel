@@ -19,6 +19,7 @@
 
   <!-- Custom styles for this template-->
   <link href="{{asset('sbadmin/css/sb-admin-2.min.css')}}" rel="stylesheet">
+  <link href="{{asset('sbadmin/vendor/datatables/datatables.min.css')}}" rel="stylesheet">
 
 </head>
 
@@ -74,6 +75,8 @@
 
   <!-- Bootstrap core JavaScript-->
   <script src="{{asset('sbadmin/vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('sbadmin/vendor/datatables/datatables.min.js')}}"></script>
+  @stack('script')
   <script src="{{asset('sbadmin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
   <!-- Core plugin JavaScript-->

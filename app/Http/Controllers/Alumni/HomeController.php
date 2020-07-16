@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Jurusan;
 use App\Kelulusan;
 use App\Alumni;
+use App\BidangPekerjaan;
 use Image;
 
 class HomeController extends Controller
@@ -28,9 +29,10 @@ class HomeController extends Controller
      */
     public function index()
     {   
+        $pekerjaan = BidangPekerjaan::all();
         $lulus = Kelulusan::all();
         $jurusan = Jurusan::all();
-        return view('alumni.home',compact('jurusan','lulus'));
+        return view('alumni.home',compact('jurusan','lulus','pekerjaan'));
     }
 
     public function edit($id)
@@ -86,7 +88,7 @@ class HomeController extends Controller
             'tahun_lulus'=>$request->tahun_lulus,
             'kerja'=>$request->status,
             'tahun_mulai_kerja'=>$request->tahun_mulai_kerja,
-            'pekerjaan'=>$request->pekerjaan,
+            'pekerjaan_id'=>$request->pekerjaan_id,
             'posisi'=>$request->posisi,
             'tanggung_jawab_khusus'=>$request->tanggung_jawab_khusus
         ]);

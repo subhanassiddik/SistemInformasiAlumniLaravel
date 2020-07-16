@@ -83,13 +83,19 @@
                                     </div>
                                     <div class="mt-4 text-center small">
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Direct
+                                            <i class="fas fa-circle text-primary"></i> It Support
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Social
+                                            <i class="fas fa-circle text-info"></i> Wirausaha
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Referral
+                                            <i class="fas fa-circle text-success"></i> Sistem Engineering
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-danger"></i> Pns
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-grey"></i> Others
                                         </span>
                                     </div>
                                 </div>
@@ -235,11 +241,11 @@ var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ["Direct", "Referral", "Social"],
+    labels: {!!json_encode($pekerjaan)!!},
     datasets: [{
-      data: [55, 20, 15],
-      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
-      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+      data: {{json_encode($alumni)}},
+      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc','tomato'],
+      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf','tomato'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
     }],
   },

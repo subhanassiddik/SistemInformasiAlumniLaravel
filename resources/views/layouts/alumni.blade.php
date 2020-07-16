@@ -19,6 +19,7 @@
 
   <!-- Custom styles for this template-->
   <link href="{{asset('sbadmin/css/sb-admin-2.min.css')}}" rel="stylesheet">
+
   
   @include('alumni.module.style')
   

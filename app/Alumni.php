@@ -31,5 +31,10 @@ class Alumni extends Authenticatable
     {
         return $this->belongsTo('App\Jurusan');
     }
+    
+    public function pekerjaan()
+    {
+        return $this->belongsTo('App\BidangPekerjaan');
+    }
 
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Kelulusan;
 use App\Alumni;
+use App\BidangPekerjaan;
 
 class GrafikController extends Controller
 {
@@ -20,7 +21,17 @@ class GrafikController extends Controller
             $tahun_kelulusan[] = $kel->tahun;
             $jumlah[]=$kel->jumlah;
         }
+
+
+        $alumni = [];
+        $pekerjaan = [];
+
+        $grafik = BidangPekerjaan::all();
+        foreach ($grafik as $g) {
+            $alumni[] = $g->alumni->count();
+            $pekerjaan[]=$g->name;
+        }
         
-        return view('front.grafik.index',compact('tahun_kelulusan','jumlah'));
+        return view('front.grafik.index',compact('tahun_kelulusan','jumlah','pekerjaan','alumni'));
     }
 }

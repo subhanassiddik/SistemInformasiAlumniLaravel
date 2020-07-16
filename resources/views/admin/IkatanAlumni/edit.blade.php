@@ -30,8 +30,8 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="postingan">Isi Postingan</label>
-                <textarea class="form-control" name="postingan" id="postingan" cols="30" rows="10">{{old('postingan')?old('postingan'):$ika->postingan}}</textarea>
+                <label for="tinyMCE">Isi Postingan</label>
+                <textarea class="form-control" name="postingan" id="tinyMCE" cols="30" rows="10">{{old('postingan')?old('postingan'):$ika->postingan}}</textarea>
                 @error('postingan')
                   <small class="form-text text-muted">{{$message}}</small>
                 @enderror
@@ -54,10 +54,19 @@
 @endsection
 
 @push('script')
-<script src="{{asset('sbadmin/vendor/tinymce/tinymce.min.js')}}" referrerpolicy="origin"></script>
+<!-- <script src="{{asset('sbadmin/vendor/tinymce/tinymce.min.js')}}" referrerpolicy="origin"></script>
 <script>
       tinymce.init({
         selector: '#postingan'
       });
-</script>
+</script> -->
+
+<script src="{{asset('sbadmin/vendor/ckeditor/ckeditor.js')}}"></script>
+<script>
+    ClassicEditor
+          .create( document.querySelector( '#tinyMCE' ) )
+          .catch( error => {
+              console.error( error );
+            } );
+    </script>
 @endpush

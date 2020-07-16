@@ -3,9 +3,9 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
         <div class="sidebar-brand-icon">
-		<img src="{{asset('sbadmin/img/bootstrap.svg')}}" width="30" height="30" class="d-inline-block align-top" alt="">
+		<img src="{{asset('sbadmin/img/logo.png')}}" width="35" height="30" class="d-inline-block align-top" alt="">
         </div>
         <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
       </a>

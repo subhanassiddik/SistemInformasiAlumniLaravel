@@ -113,7 +113,7 @@
                                     <hr>
                                 </div>
                                 <div class="col-md-6">
-                                    <h6><strong>{{ Auth::user()->pekerjaan }}</strong></h6>
+                                    <h6><strong>{{ Auth::user()->pekerjaan_id !=null?Auth::user()->pekerjaan->name:''}}</strong></h6>
                                     <small>Pekerjaan</small>
                                     <hr>
                                     <h6><strong>{{ Auth::user()->tahun_mulai_kerja }}</strong></h6>
@@ -276,9 +276,14 @@
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Pekerjaan</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="pekerjaan" name="pekerjaan" value="{{ old('pekerjaan')?old('pekerjaan'):Auth::user()->pekerjaan }}">
-                                        @error('pekerjaan')
+                                    <div class="col-lg-5">
+                                        <select name="pekerjaan_id" id="" class="form-control">
+                                            <option value="">--Pilh Tahun Lulus--</option>
+                                            @foreach($pekerjaan as $p)
+                                                <option value="{{$p->id}}" {{  Auth::user()->pekerjaan_id == $p->id ? 'selected':'' }}>{{$p->name}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('pekerjaan_id')
                                             <small class="form-text text-muted">{{$message}}</small>
                                         @enderror
                                     </div>

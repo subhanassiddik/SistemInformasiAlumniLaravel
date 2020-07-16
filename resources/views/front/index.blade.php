@@ -7,7 +7,7 @@
           <!-- Content Row -->
           <div class="row">
 
-            <div class="col-lg-8 mb-4">
+            <div class="col-lg-8 mb-1">
 
               <!-- Illustrations -->
               <div class="card shadow mb-4">
@@ -17,7 +17,7 @@
                 <div class="card-body">
                   <div class="text-center">
                     <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                      src="{{asset('sbadmin/img/undraw_posting_photo.svg')}}" alt="">
+                      src="{{asset('sbadmin/img/logotext.png')}}" alt="">
                   </div>
                   <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow"
                       href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that
@@ -76,8 +76,9 @@
             </div>
 
           </div>
-          <div class="row">
 
+          <div class="row">
+            
             <div class="col-lg-8 mb-4">
 
               <!-- Project Card Example -->
@@ -88,15 +89,15 @@
                   </h6>
                 </div>
                 <div class="card-body">
-                  <h4 class="small font-weight-bold">Bekerja <span class="float-right">20%</span></h4>
+                  <h4 class="small font-weight-bold">Bekerja <span class="float-right">{{$kerja}}%</span></h4>
                   <div class="progress mb-4">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width:20%" aria-valuenow="20"
-                      aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-danger" role="progressbar" style="width:{{$kerja}}%" aria-valuenow="20"
+                      aria-valuemin="0" aria-valuemax="{{$total}}"></div>
                   </div>
-                  <h4 class="small font-weight-bold">Tidak Bekerja <span class="float-right">40%</span></h4>
+                  <h4 class="small font-weight-bold">Tidak Bekerja <span class="float-right">{{$belumkerja}}%</span></h4>
                   <div class="progress mb-4">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40"
-                      aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: {{$belumkerja}}%" aria-valuenow="40"
+                      aria-valuemin="0" aria-valuemax="{{$total}}"></div>
                   </div>
                 </div>
               </div>
