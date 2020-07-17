@@ -90,18 +90,19 @@
     $('#dataTable').DataTable({
         dom:'lBfrtip',
         buttons: [
-          'copy','print','excel', 'pdf',
+          'copy','excel', 'pdf','searchPanes',
             {
                 extend: 'print',
-                text: 'Print selected',
                 exportOptions: {
-                    modifier: {
-                        selected: null
-                    }
+                    columns: ':visible'
                 }
-            }
+            },
+            'colvis',
         ],
-        select : true,         
+        scrollX: true,
+        fixedColumns:   {
+            leftColumns: 1
+        },
       });
 } );
 </script>

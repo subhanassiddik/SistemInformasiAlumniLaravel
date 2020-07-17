@@ -69,16 +69,26 @@
                 <th>Email</th>
                 <th>Telepon</th>
                 <th>Status</th>
+                <th>Jurusan</th>
+                <th>Angkatan</th>
+                <th>Ipk</th>
+                <th>Lulus</th>
+                <th>pekerjaan</th>
               </tr>
             </thead>
             <tfoot>
               <tr>
-                <th>Action</th>
+                <th>========Action========</th>
                 <th>Nama</th>
                 <th>Nim</th>
                 <th>Email</th>
                 <th>Telepon</th>
                 <th>Status</th>
+                <th>Jurusan</th>
+                <th>Angkatan</th>
+                <th>Ipk</th>
+                <th>Lulus</th>
+                <th>pekerjaan</th>
               </tr>
             </tfoot>
             <tbody>
@@ -104,6 +114,11 @@
                     belum kerja
                     @endif                    
                 </td>
+                <td>{{$al->jurusan->jurusan}}</td>
+                <td>{{$al->angkatan}}</td>
+                <td>{{$al->ipk}}</td>
+                <td>{{$al->tahun_lulus}}</td>
+                <td>{{$al->pekerjaan->name}}</td>
               </tr>
             @endforeach
             </tbody>
@@ -123,18 +138,19 @@
     $('#dataTable').DataTable({
         dom:'lBfrtip',
         buttons: [
-          'copy','print','excel', 'pdf',
+          'copy','excel', 'pdf','searchPanes',
             {
                 extend: 'print',
-                text: 'Print selected',
                 exportOptions: {
-                    modifier: {
-                        selected: null
-                    }
+                    columns: ':visible'
                 }
-            }
+            },
+            'colvis',
         ],
-        select : true,         
+        scrollX: true,
+        fixedColumns:   {
+            leftColumns: 1
+        },
       });
 } );
 </script>
