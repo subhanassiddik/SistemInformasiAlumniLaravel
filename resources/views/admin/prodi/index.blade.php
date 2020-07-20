@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('title')
+<title>Admin - Prodi</title>
+@endsection
+
 @section('content')
     <!-- Begin Page Content -->
     <div class="container-fluid">
@@ -17,7 +21,7 @@
             <form class="form-inline" method="post" action="{{route('admin.prodi.store')}}">
                 @csrf
                 <div class="form-group mx-sm-3 mb-2">
-                    <input name="prodi" type="text" class="form-control" placeholder="Nama Prodi">
+                    <input name="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Nama Prodi">
                 </div>
                 <button type="submit" class="btn btn-primary mb-2">Tambah Prodi</button>
             </form>
@@ -69,19 +73,19 @@
             @foreach($prodi as $p)
               <tr>
                 <td>
-                    <form action="{{route('admin.prodi.destroy','$p->id')}}" method="post" class="d-inline">
+                    <form action="{{route('admin.prodi.destroy',$p->id)}}" method="post" class="d-inline">
                         @csrf
                         @method('delete')
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-danger"><i class="far fa-fw fa-trash-alt"></i></button>
                     </form>
                 
                 <form action="{{route('admin.prodi.update',$p->id)}}" method="post" class="d-inline">
                         @csrf
                         @method('patch')
-                    <button type="submit" class="btn btn-warning">Update</button>
+                    <button type="submit" class="btn btn-warning"><i class="far fa-fw far fa-edit"></i></button>
                 </td>
                     <td>
-                        <input class="form-control border-0" type="text" name="prodi" value="{{$p->prodi}}">
+                        <input class="form-control border-0  @error('prodi') is-invalid @enderror"  type="text" name="prodi" value="{{$p->prodi}}">
                     </td>
                 </form>
               </tr>

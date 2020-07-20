@@ -7,7 +7,7 @@
         <div class="sidebar-brand-icon">
 		<img src="{{asset('sbadmin/img/logo.png')}}" width="35" height="30" class="d-inline-block align-top" alt="">
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">ADMIN</div>
       </a>
 
       <!-- Divider -->
@@ -43,7 +43,7 @@
       </li>
 
       <li class="nav-item">
-          <a class="nav-link" href="">
+          <a class="nav-link" href="#">
             <i class="fas fa-fw fa-info-circle"></i>
             <span>Info Lowongan Kerja</span>
           </a>
@@ -77,16 +77,38 @@
         </div>
       </li>
 
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#cetak" aria-expanded="true" aria-controls="cetak">
+          <i class="fas fa-fw fa-list"></i>
+          <span>Cetak</span>
+        </a>
+        <div id="cetak" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Export:</h6>
+            <a class="collapse-item" href="{{route('admin.laporan_alumni')}}">Laporan Alumni</a>
+            <a class="collapse-item" href="{{route('admin.laporan_jurusan')}}">Laporan Jurusan</a>
+            <a class="collapse-item" href="{{route('admin.laporan_prodi')}}">Laporan Prodi</a>
+            <a class="collapse-item" href="{{route('admin.laporan_angkatan')}}">Laporan Angkatan/Alumni</a>
+          </div>
+        </div>
+      </li>
+
       <!-- Nav Item - Charts -->
       <li class="nav-item">
+        
         <a class="nav-link" href="" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">
+                
+          document.getElementById('logout-form').submit();">
+          
           <i class="fas fa-fw fa-key"></i>
+          
           <span>Log Out</span></a>
+      
       </li>
 
       <form id="logout-form" action="{{ route('admin.logout') }}" method="GET" style="display: none;">
-          @crsf
+          @csrf
       </form>
 
       <!-- Divider -->

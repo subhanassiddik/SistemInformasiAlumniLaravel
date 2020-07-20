@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('title')
+<title>Admin - Ikatan Alumni</title>
+@endsection
+
 @section('content')
 
 <!-- Begin Page Content -->
@@ -24,14 +28,14 @@
             @csrf  
             <div class="form-group">
                 <label for="judul">Judul</label>
-                <input type="text" name="judul" class="form-control" id="judul" value="{{old('judul')}}">
+                <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror" id="judul" value="{{old('judul')}}">
                 @error('judul')
                   <small class="form-text text-muted">{{$message}}</small>
                 @enderror
             </div>
             <div class="form-group">
                 <label for="tinyMCE">Isi Postingan</label>
-                <textarea class="form-control" name="postingan" id="tinyMCE" cols="30" rows="10">{{old('postingan')}}</textarea>
+                <textarea class="form-control @error('postingan') is-invalid @enderror" name="postingan" id="tinyMCE" cols="30" rows="10">{{old('postingan')}}</textarea>
                 @error('postingan')
                   <small class="form-text text-muted">{{$message}}</small>
                 @enderror
@@ -62,8 +66,16 @@
 </script> -->
 <script src="{{asset('sbadmin/vendor/ckeditor/ckeditor.js')}}"></script>
 <script>
+  var options = {
+    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+  };
+</script>
+<script>
     ClassicEditor
-          .create( document.querySelector( '#tinyMCE' ) )
+          .create( document.querySelector( '#tinyMCE',options ) )
           .catch( error => {
               console.error( error );
             } );

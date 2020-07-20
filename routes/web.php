@@ -45,6 +45,11 @@ Route::group(['prefix' => 'admin','as'=>'admin.'], function () {
         Route::resource('kelulusan', 'KelulusanController');
 
         Route::resource('bidang_pekerjaan', 'BidangPekerjaanController');
+
+        Route::get('laporan/alumni','LaporanController@alumni')->name('laporan_alumni');
+        Route::get('laporan/jurusan','LaporanController@jurusan')->name('laporan_jurusan');
+        Route::get('laporan/prodi','LaporanController@prodi')->name('laporan_prodi');
+        Route::get('laporan/angkatan','LaporanController@angkatan')->name('laporan_angkatan');
     });
 
     Route::group(['namespace' => 'AuthAdmin'], function () {

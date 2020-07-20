@@ -21,8 +21,8 @@ class JurusanController extends Controller
     {
     
         $this->validate($request, [
-            'prodi' => 'required',
-            'jurusan' => 'required|string|max:100',
+            'prodi_tambah' => 'required',
+            'jurusan_tambah' => 'required|string|max:100',
         ]);
 
         Jurusan::create([
@@ -35,11 +35,15 @@ class JurusanController extends Controller
 
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'prodi' => 'required',
+            'jurusan' => 'required|string|max:100',
+        ]);
+
         $jurusan = Jurusan::findOrFail($id);
 
         $jurusan->update([
             'jurusan'=> $request->jurusan,
-            'prodi_id' => $request->prodi_id
         ]);
 
         return redirect(route('admin.jurusan.index'))->with('edit','Jurusan Berhasil Di edit');

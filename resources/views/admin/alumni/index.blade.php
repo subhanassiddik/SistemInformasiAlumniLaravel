@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('title')
+<title>Data Alumni</title>
+@endsection
+
 @section('content')
     <!-- Begin Page Content -->
     <div class="container-fluid">
@@ -7,7 +11,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-2">
       <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Daftar Alumni</h6>
+        <h6 class="m-0 font-weight-bold text-primary"> <i class="fas fa-fw fas fa-users	"></i> Daftar Alumni</h6>
       </div>
     </div>
 
@@ -78,7 +82,7 @@
             </thead>
             <tfoot>
               <tr>
-                <th>========Action========</th>
+                <th>=======Action=======</th>
                 <th>Nama</th>
                 <th>Nim</th>
                 <th>Email</th>
@@ -98,9 +102,9 @@
                 <form action="{{route('admin.alumni.delete',$al->id)}}" method="post" class="d-inline">
 											@csrf
 											@method('delete')
-											<button type="submit" class="btn btn-danger">Delete</button>
+											<button type="submit" class="btn btn-danger"> <i class="far fa-fw fa-trash-alt"></i></button>
                 </form>
-                <a class="btn btn-warning" href="{{route('admin.alumni.edit',$al->id)}}" role="button">Edit</a>
+                <a class="btn btn-warning" href="{{route('admin.alumni.edit',$al->id)}}" role="button"><i class="far fa-fw far fa-edit"></i></a>
                 <a class="btn btn-info" href="#" role="button">Show</a>
                 </td>
                 <td>{{$al->name}}</td>
@@ -114,11 +118,11 @@
                     belum kerja
                     @endif                    
                 </td>
-                <td>{{$al->jurusan->jurusan}}</td>
+                <td>{{$al->jurusan_id != null?$al->jurusan->jurusan:''}}</td>
                 <td>{{$al->angkatan}}</td>
                 <td>{{$al->ipk}}</td>
                 <td>{{$al->tahun_lulus}}</td>
-                <td>{{$al->pekerjaan->name}}</td>
+                <td>{{ $al->pekerjaan_id !=null?$al->pekerjaan->name:''}}</td>
               </tr>
             @endforeach
             </tbody>
@@ -143,7 +147,18 @@
                 extend: 'print',
                 exportOptions: {
                     columns: ':visible'
-                }
+                },
+                customize: function ( win ) {
+                    $(win.document.body)
+                        .css( 'font-size', '10pt' )
+                        .prepend(
+                            '<img src="{{asset('sbadmin/img/logotext.png')}}" style="position:absolute; top:0; left:0;opacity: 0.1;" />'
+                        );
+ 
+                    $(win.document.body).find( 'table' )
+                        .addClass( 'compact' )
+                        .css( 'font-size', 'inherit' );
+                },
             },
             'colvis',
         ],

@@ -48,7 +48,7 @@
                     
                     <div class="form-group">
                       <label for="exampleInputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" name="email" value="{{ old('email') }}"
+                      <input type="email" class="form-control @error('email') is-invalid @enderror" id="exampleInputEmail1" name="email" value="{{ old('email') }}"
                         placeholder="Enter email">
                         @error('email')
                           <small class="form-text text-muted">{{$message}}</small>  

@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('title')
+<title>Admin - Ikatan Alumni</title>
+@endsection
+
 @section('content')
     <!-- Begin Page Content -->
     <div class="container-fluid">
@@ -7,7 +11,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-2">
       <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Ikatan Alumni</h6>
+        <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-fw far fa-address-book"></i> Ikatan Alumni</h6>
       </div>
     </div>
 
@@ -70,9 +74,9 @@
                 <form action="{{route('admin.ikatan_alumni.delete',$ika->id)}}" method="post" class="d-inline">
 											@csrf
 											@method('delete')
-											<button type="submit" class="btn btn-danger">Delete</button>
+											<button type="submit" class="btn btn-danger"><i class="far fa-fw fa-trash-alt"></i></button>
                 </form>
-                <a class="btn btn-warning" href="{{route('admin.ikatan_alumni.edit',$ika->id)}}" role="button">Edit</a>
+                <a class="btn btn-warning" href="{{route('admin.ikatan_alumni.edit',$ika->id)}}" role="button"><i class="far fa-fw far fa-edit"></i></a>
                 <a class="btn btn-info" href="#" role="button">Show</a>
                 </td>
                 <td>{{$ika->judul}}</td>

@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('title')
+<title>Admin - Jurusan</title>
+@endsection
+
 @section('content')
     <!-- Begin Page Content -->
     <div class="container-fluid">
@@ -17,20 +21,14 @@
             <form class="form-inline" method="post" action="{{route('admin.jurusan.store')}}">
                 @csrf
                 <div class="form-group mx-sm-3 mb-2">
-                  <select name="prodi" class="custom-select mr-sm-2">
+                  <select name="prodi_tambah" class="custom-select mr-sm-2 @error('prodi_tambah') is-invalid @enderror">
                       <option value="">Pilih Prodi</option>
                       @foreach ($prodi as $p)
                         <option value="{{$p->id}}">{{$p->prodi}}</option>
                       @endforeach
                   </select>  
-                  <input name="jurusan" type="text" class="form-control" placeholder="Nama Jurusan">
+                  <input name="jurusan_tambah" type="text" class="form-control @error('jurusan_tambah') is-invalid @enderror" placeholder="Nama Jurusan">
                 </div>
-                @error('prodi')
-                  <small class="form-text text-muted">{{$message}}</small>
-                @enderror
-                @error('jurusan')
-                  <small class="form-text text-muted">{{$message}}</small>
-                @enderror
                 <button type="submit" class="btn btn-primary mb-2">Tambah jurusan</button>
             </form>
         </div>
@@ -86,15 +84,15 @@
                 <form action="{{route('admin.jurusan.destroy',$j->id)}}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger"><i class="far fa-fw fa-trash-alt"></i></button>
                 </form>
                 
                 <form action="{{route('admin.jurusan.update',$j->id)}}" method="post" class="d-inline">
                   @csrf
                   @method('patch')
-                  <button type="submit" class="btn btn-warning">Update</button>
+                  <button type="submit" class="btn btn-warning"><i class="far fa-fw far fa-edit"></i></button>
                 </td>
-                <td><input class="form-control border-0" type="text" name="jurusan" value="{{$j->jurusan}}"></td>
+                <td><input class="form-control border-0 @error('jurusan') is-invalid @enderror" type="text" name="jurusan" value="{{$j->jurusan}}"></td>
                 <td> 
                   <select name="prodi_id" class="form-control border-0" required>
                     @foreach ($prodi as $p) 

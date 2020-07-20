@@ -22,4 +22,6 @@ class AlumniImport implements ToModel
             'telepon'=>$row[3],
         ]);
     }
+
+
 }

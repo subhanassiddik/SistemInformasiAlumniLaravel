@@ -19,11 +19,11 @@ class ProdiController extends Controller
     {   
         
         $this->validate($request, [
-            'prodi' => 'required|string|max:100',
+            'name' => 'required|string|max:100',
         ]);
 
         Prodi::create([
-            'prodi' => $request->prodi
+            'prodi' => $request->name
         ]);
 
         return redirect(route('admin.prodi.index'))->with('success','Prodi Berhasil Di tambah');
@@ -32,6 +32,10 @@ class ProdiController extends Controller
 
     public function update(Request $request,$id)
     {   
+        $this->validate($request, [
+            'prodi' => 'required|string|max:100',
+        ]);
+
         $prodi = Prodi::findOrFail($id);
         
         $prodi->update([

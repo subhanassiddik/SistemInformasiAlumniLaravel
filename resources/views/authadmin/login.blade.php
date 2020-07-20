@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Login</title>
+  <title>Admin</title>
 
   <!-- Custom fonts for this template-->
   <link href="{{asset('sbadmin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -27,37 +27,36 @@
     <!-- Outer Row -->
     <div class="row justify-content-center">
 
-      <div class="col-xl-10 col-lg-12 col-md-9">
+      <div class="col-lg-5">
 
         <div class="card o-hidden border-0 shadow-lg my-5">
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
             <div class="row">
-              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-              <div class="col-lg-6">
+              <div class="col-lg">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Welcome Dude!</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Admin</h1>
                   </div>
                   <form class="user" action="{{ route('admin.login.submit') }}" method="POST">
                   {{ csrf_field() }}
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address Or Name" name="email" value="{{ old('email') }}">
+                      <input type="text" class="form-control form-control-user @error('email') is-invalid @enderror" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email" name="email" value="{{ old('email') }}">
                       @if ($errors->has('email'))
                           <small class="form-text text-muted">{{ $errors->first('email') }}</small>
                       @endif
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" name="password">
+                      <input type="password" class="form-control form-control-user @error('password') is-invalid @enderror" id="exampleInputPassword" placeholder="Password" name="password">
                       @if ($errors->has('password'))
                           <small class="form-text text-muted">{{ $errors->first('password') }}</small>
                       @endif
                     </div>
                     <div class="form-group">
-                      <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                        <label class="custom-control-label" for="customCheck">Remember Me</label>
-                      </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="remember" id="exampleCheck1" {{ old('remember') ? 'checked' : '' }}>
+                            <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary btn-user btn-block">
                       Login
@@ -81,14 +80,14 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="{{asset('sbadmin/vendor/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <!-- <script src="{{asset('sbadmin/vendor/jquery/jquery.min.js')}}"></script> -->
+  <!-- <script src="{{asset('sbadmin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script> -->
 
   <!-- Core plugin JavaScript-->
-  <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+  <!-- <script src="{{asset('sbadmin/vendor/jquery-easing/jquery.easing.min.js')}}"></script> -->
 
   <!-- Custom scripts for all pages-->
-  <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
+  <!-- <script src="{{asset('sbadmin/js/sb-admin-2.min.js')}}"></script> -->
 
 </body>
 

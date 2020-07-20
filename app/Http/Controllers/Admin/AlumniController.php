@@ -99,7 +99,11 @@ class AlumniController extends Controller
 		// upload ke folder file_siswa di dalam folder public
 		$file->move('file_alumni_excel',$nama_file);
         // import data
-        Excel::import(new AlumniImport, public_path('/file_alumni_excel/'.$nama_file));
+        try {
+            Excel::import(new AlumniImport, public_path('/file_alumni_excel/'.$nama_file)); 
+        } catch (\Exception $ex) {
+            return back()->with('error','Ada yang salah, Cek format penulisan.');
+        }
 		
         return redirect(route('admin.alumni.index'))->with('success', 'Data Alumni Excel Berhasil Ditambahkan');
 	}

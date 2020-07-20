@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('title')
+<title>Admin - Angkatan/alumni</title>
+@endsection
+
 @section('content')
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -94,14 +98,14 @@
                                     class="d-inline">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-danger"><i class="far fa-fw fa-trash-alt"></i></button>
                                 </form>
 
                                 <form action="{{route('admin.kelulusan.update',$k->id)}}" method="post"
                                     class="d-inline">
                                     @csrf
                                     @method('patch')
-                                    <button type="submit" class="btn btn-warning">Update</button>
+                                    <button type="submit" class="btn btn-warning"><i class="far fa-fw far fa-edit"></i></button>
                             </td>
                             <td><input class="form-control border-0" type="text" name="tahun" value="{{$k->tahun}}">
                             </td>

@@ -29,8 +29,8 @@ class LoginController extends Controller
       $credential = [
             'email' => $request->email, 
             'password' => $request->password
-        ];
-
+        ]; 
+      
       // Attempt to log the user in
       if (Auth::guard('admin')->attempt($credential, $request->remember)) {
         // if successful, then redirect to their intended location
@@ -45,4 +45,5 @@ class LoginController extends Controller
         Auth::guard('admin')->logout();
         return redirect('/');
     }   
+
 }
