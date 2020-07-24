@@ -34,8 +34,8 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="tinyMCE">Isi Postingan</label>
-                <textarea class="form-control @error('postingan') is-invalid @enderror" name="postingan" id="tinyMCE" cols="30" rows="10">{{old('postingan')}}</textarea>
+                <label for="my-editor" >Isi Postingan</label>
+                <textarea class="form-control @error('postingan') is-invalid @enderror" name="postingan" id="my-editor" cols="30" rows="10">{{old('postingan')}}</textarea>
                 @error('postingan')
                   <small class="form-text text-muted">{{$message}}</small>
                 @enderror
@@ -58,26 +58,23 @@
 @endsection
 
 @push('script')
-<!-- <script src="{{asset('sbadmin/vendor/tinymce/tinymce.min.js')}}" referrerpolicy="origin" deper></script>
-<script>
-      tinymce.init({
-        selector: 'textarea#tinyMCE'
-      });
-</script> -->
-<script src="{{asset('sbadmin/vendor/ckeditor/ckeditor.js')}}"></script>
-<script>
-  var options = {
-    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
-  };
-</script>
+<!-- ckeditor 5 -->
+<script src="{{asset('sbadmin/vendor/ckeditor5/ckeditor.js')}}"></script>
 <script>
     ClassicEditor
-          .create( document.querySelector( '#tinyMCE',options ) )
-          .catch( error => {
-              console.error( error );
-            } );
-    </script>
+        .create( document.querySelector( '#my-editor'))
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
+<!-- ckeditor 4 dengan fungsi upload image -->
+<!-- <script src="{{asset('sbadmin/vendor/ckeditor/ckeditor.js')}}"></script> -->
+<!-- <script>
+        CKEDITOR.replace('my-editor', {
+            filebrowserUploadUrl: "{{route('admin.post.image', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+      </script> -->
+
 @endpush

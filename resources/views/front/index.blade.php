@@ -1,5 +1,9 @@
 @extends('layouts.front')
 
+@section('title')
+<title>Alumni Polinas</title>
+@endsection
+
 @section('content')
 
         <!-- Begin Page Content -->
@@ -19,10 +23,9 @@
                     <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
                       src="{{asset('sbadmin/img/logotext.png')}}" alt="">
                   </div>
-                  <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow"
-                      href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that
-                    you can use completely free and without attribution!</p>
-                  <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
+                  <p>Hola, Selamat datang di website informasi alumni <a target="_blank" rel="nofollow"
+                      href="https://www.polinas.ac.id/">Politeknik Infomatika Nasional Makassar.</a> Jika anda adalah alumni, silahkan login untuk melengkapi data anda.</p>
+                  <a target="_blank" rel="nofollow" href="{{route('front.alumni.index')}}">Halaman Daftar Alumni &rarr;</a>
                 </div>
               </div>
 

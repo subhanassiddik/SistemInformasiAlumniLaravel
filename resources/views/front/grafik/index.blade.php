@@ -1,5 +1,9 @@
 @extends('layouts.front')
 
+@section('title')
+<title>Grafik Alumni</title>
+@endsection
+
 @section('content')
 
                 <!-- Begin Page Content -->
@@ -11,7 +15,7 @@
                             <!-- Illustrations -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Grafik Alumni</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-fw fa-chart-area"></i>Grafik Alumni</h6>
                                 </div>
                             </div>
 

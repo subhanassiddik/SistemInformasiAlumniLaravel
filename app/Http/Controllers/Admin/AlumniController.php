@@ -13,7 +13,7 @@ class AlumniController extends Controller
 
     public function index(Request $request)
     {   
-        // dd(request()->kerja);
+
         if (!empty(request()->kerja))
             $alumni = alumni::where('kerja',request()->kerja)->get();
         else
@@ -106,5 +106,11 @@ class AlumniController extends Controller
         }
 		
         return redirect(route('admin.alumni.index'))->with('success', 'Data Alumni Excel Berhasil Ditambahkan');
-	}
+    }
+    
+    public function show($id)
+    {
+        $alumni = Alumni::findOrfail($id);
+        return view('admin.alumni.show',compact('alumni'));
+    }
 }

@@ -72,13 +72,13 @@
                     <form action="{{route('admin.bidang_pekerjaan.destroy',$bp->id)}}" method="post" class="d-inline">
                         @csrf
                         @method('delete')
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-danger"><i class="far fa-fw fa-trash-alt"></i></button>
                     </form>
                 
                 <form action="{{route('admin.bidang_pekerjaan.update',$bp->id)}}" method="post" class="d-inline">
                         @csrf
                         @method('patch')
-                    <button type="submit" class="btn btn-warning">Update</button>
+                    <button type="submit" class="btn btn-warning"><i class="far fa-fw far fa-edit"></i></button>
                 </td>
                     <td>
                         <input class="form-control border-0" type="text" name="name" value="{{$bp->name}}">
@@ -100,7 +100,34 @@
 @push('script')
 <script>
   $(document).ready(function() {
-    $('#dataTable').DataTable();
-  });
+    $('#dataTable').DataTable({
+        dom:'lBfrtip',
+        buttons: [
+          'copy','excel', 'pdf','searchPanes',
+            {
+                extend: 'print',
+                exportOptions: {
+                    columns: ':visible'
+                },
+                customize: function ( win ) {
+                    $(win.document.body)
+                        .css( 'font-size', '10pt' )
+                        .prepend(
+                            '<img src="{{asset('sbadmin/img/logotext.png')}}" style="position:absolute; top:0; left:0;opacity: 0.1;" />'
+                        );
+ 
+                    $(win.document.body).find( 'table' )
+                        .addClass( 'compact' )
+                        .css( 'font-size', 'inherit' );
+                },
+            },
+            'colvis',
+        ],
+        scrollX: true,
+        fixedColumns:   {
+            leftColumns: 1
+        },
+      });
+} );
 </script>
 @endpush

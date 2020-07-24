@@ -77,7 +77,7 @@
 											<button type="submit" class="btn btn-danger"><i class="far fa-fw fa-trash-alt"></i></button>
                 </form>
                 <a class="btn btn-warning" href="{{route('admin.ikatan_alumni.edit',$ika->id)}}" role="button"><i class="far fa-fw far fa-edit"></i></a>
-                <a class="btn btn-info" href="#" role="button">Show</a>
+                <a class="btn btn-info" href="{{route('front.ikatan_alumni.show',$ika->id)}}" role="button">Show</a>
                 </td>
                 <td>{{$ika->judul}}</td>
                 <td>{{$ika->created_at}}</td>

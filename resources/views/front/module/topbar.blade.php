@@ -3,14 +3,14 @@
     <div class="container">
         <a class="navbar-brand" href="{{route('front.index')}}">
             <img src="{{asset('sbadmin/img/logo.png')}}" width="35" height="30" class="d-inline-block align-top" alt="">
-            Bootstrap
+            Alumni Polinas
         </a>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="#">Panduan Login <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="{{route('front.ikatan_alumni.index')}}"></i>Ikatan Alumni <span
+                <a class="nav-link" href="{{route('front.ikatan_alumni.index')}}"><i class="fas fa-fw fa-newspaper"></i>  Berita Alumni <span
                         class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item ">
@@ -18,7 +18,7 @@
                     Grafik Alumni <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="{{route('front.alumni.index')}}">Daftar Alumni <span
+                <a class="nav-link" href="{{route('front.alumni.index')}}"><i class="fas fa-fw fas fa-users	"></i>Daftar Alumni <span
                         class="sr-only">(current)</span></a>
             </li>
         </ul>

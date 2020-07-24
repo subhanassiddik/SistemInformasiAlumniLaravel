@@ -72,7 +72,7 @@
             <h6 class="collapse-header">Other:</h6>
             <a class="collapse-item" href="{{route('admin.kelulusan.index')}}">Daftar Angkatan/Alumni</a>
             <a class="collapse-item" href="{{route('admin.bidang_pekerjaan.index')}}">Bidang Pekerjaan</a>
-            <a class="collapse-item" href="blank.html">Info Penting</a>
+            <a class="collapse-item" href="#">Info Penting</a>
           </div>
         </div>
       </li>
@@ -80,12 +80,12 @@
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#cetak" aria-expanded="true" aria-controls="cetak">
-          <i class="fas fa-fw fa-list"></i>
-          <span>Cetak</span>
+          <i class="fas fa-fw fa-print"></i>
+          <span>Cetak Cepat</span>
         </a>
         <div id="cetak" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Export:</h6>
+            <h6 class="collapse-header">Cetak cepat:</h6>
             <a class="collapse-item" href="{{route('admin.laporan_alumni')}}">Laporan Alumni</a>
             <a class="collapse-item" href="{{route('admin.laporan_jurusan')}}">Laporan Jurusan</a>
             <a class="collapse-item" href="{{route('admin.laporan_prodi')}}">Laporan Prodi</a>

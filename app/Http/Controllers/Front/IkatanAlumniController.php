@@ -13,4 +13,11 @@ class IkatanAlumniController extends Controller
         $ika = IkatanAlumni::latest()->paginate(10);
         return view('front.ikatanalumni.index',compact('ika'));
     }
+
+    public function show($id)
+    {
+        $ika = IkatanAlumni::findOrFail($id);
+
+        return view('front.ikatanalumni.show',compact('ika'));
+    }
 }

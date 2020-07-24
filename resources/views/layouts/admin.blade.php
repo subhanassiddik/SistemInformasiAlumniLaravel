@@ -18,10 +18,8 @@
   <!-- Custom styles for this template-->
   <link href="{{asset('sbadmin/css/sb-admin-2.min.css')}}" rel="stylesheet" type="text/css">
   <link href="{{asset('sbadmin/vendor/datatables/datatables.min.css')}}" rel="stylesheet">
+  @yield('link')
 
-  <!-- data table online -->
-<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css"> -->
 </head>
 
 <body id="page-top">

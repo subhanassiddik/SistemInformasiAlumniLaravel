@@ -31,13 +31,15 @@
             </div>
             <div class="form-group">
                 <label for="tinyMCE">Isi Postingan</label>
-                <textarea class="form-control" name="postingan" id="tinyMCE" cols="30" rows="10">{{old('postingan')?old('postingan'):$ika->postingan}}</textarea>
+                <textarea class="form-control" name="postingan" id="tinyMCE" cols="30" rows="10">
+                {{old('postingan')?old('postingan'):$ika->postingan}}
+                </textarea>
                 @error('postingan')
                   <small class="form-text text-muted">{{$message}}</small>
                 @enderror
             </div>
 
-        <button type="submit" class="btn btn-primary">Proses Edit</button>
+        <button type="submit" class="btn btn-primary">Update</button>
        
         </form>
       </div>
@@ -61,7 +63,7 @@
       });
 </script> -->
 
-<script src="{{asset('sbadmin/vendor/ckeditor/ckeditor.js')}}"></script>
+<script src="{{asset('sbadmin/vendor/ckeditor5/ckeditor.js')}}"></script>
 <script>
     ClassicEditor
           .create( document.querySelector( '#tinyMCE' ) )
@@ -69,4 +71,6 @@
               console.error( error );
             } );
     </script>
+
+
 @endpush

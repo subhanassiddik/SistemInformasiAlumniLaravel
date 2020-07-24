@@ -70,6 +70,7 @@
                 <th>Action</th>
                 <th>Nama</th>
                 <th>Nim</th>
+                <th>Gender</th>
                 <th>Email</th>
                 <th>Telepon</th>
                 <th>Status</th>
@@ -85,6 +86,7 @@
                 <th>=======Action=======</th>
                 <th>Nama</th>
                 <th>Nim</th>
+                <th>Gender</th>
                 <th>Email</th>
                 <th>Telepon</th>
                 <th>Status</th>
@@ -105,10 +107,11 @@
 											<button type="submit" class="btn btn-danger"> <i class="far fa-fw fa-trash-alt"></i></button>
                 </form>
                 <a class="btn btn-warning" href="{{route('admin.alumni.edit',$al->id)}}" role="button"><i class="far fa-fw far fa-edit"></i></a>
-                <a class="btn btn-info" href="#" role="button">Show</a>
+                <a class="btn btn-info" href="{{route('admin.alumni.show',$al->id)}}" role="button">Show</a>
                 </td>
                 <td>{{$al->name}}</td>
                 <td>{{$al->nim}}</td>
+                <td>{{$al->jenis_kelamin}}</td>
                 <td>{{$al->email}}</td>
                 <td>{{$al->telepon}}</td>
                 <td>
