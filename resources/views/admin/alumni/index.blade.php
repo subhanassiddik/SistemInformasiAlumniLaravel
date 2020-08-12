@@ -22,15 +22,24 @@
             <a class="btn btn-primary" href="{{route('admin.alumni.create')}}" role="button"><i class="fa fa-fw fa-plus"></i> Tambah Data Alumni</a>
           </div>
             <div class="col-lg-6">
-                <form action="{{route('admin.alumni.index')}}" method="GET">
+                  <form action="{{route('admin.alumni.index')}}" method="GET" class="form-inline">
                     @csrf
-                    <select name="kerja" class="form-control float-right w-50" >
-                      <option value="">Pilih Status</option>
-                      <option value="1">Bekerja</option>
-                      <option value="2">Tidak Bekerja</option>
+                    <div class="form-group mr-2">
+                    <select name="jurusan_id" class="form-control">
+                      <option value="">Pilih Jurusan</option>
+                        @foreach ($jurusan as $val)
+                          <option value="{{ $val->id }}" {{ request()->jurusan_id == $val->id ? 'selected':'' }}>{{ $val->jurusan }}</option>
+                        @endforeach
                     </select>
-                    <button type="submit" class="btn btn-primary float-right mr-2">Filter</button>
-                
+                    </div>
+                    <div class="form-group mr-2">
+                    <select name="kerja" class="form-control" >
+                      <option value="">Pilih Status</option>
+                      <option value="1" {{ request()->kerja == 1 ? 'selected':'' }}>Bekerja</option>
+                      <option value="2" {{ request()->kerja == 2 ? 'selected':'' }}>Belum Bekerja</option>
+                    </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Filter</button>
                 </form>
             </div>
         </div>
@@ -145,9 +154,25 @@
     $('#dataTable').DataTable({
         dom:'lBfrtip',
         buttons: [
-          'copy','excel', 'pdf','searchPanes',
+          'copy','searchPanes',
+            
+            {
+                extend: 'excelHtml5',
+                exportOptions: {
+                    columns: ':visible'
+                },
+            },
+            {
+                extend: 'pdfHtml5',
+                orientation: 'landscape',
+                pageSize: 'A4',
+                exportOptions: {
+                    columns: ':visible'
+                },
+            },
             {
                 extend: 'print',
+                orientation: 'landscape',
                 exportOptions: {
                     columns: ':visible'
                 },

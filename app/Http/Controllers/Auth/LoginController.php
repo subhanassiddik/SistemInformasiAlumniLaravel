@@ -13,6 +13,11 @@ class LoginController extends Controller
 
     protected $redirectTo = '/alumni';
 
+    public function showLoginForm()
+    {
+        return redirect('/');
+    }
+
     public function __construct()
     {
         $this->middleware('guest')->except(['logout','logoutUser']);

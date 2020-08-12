@@ -12,14 +12,14 @@ class AlumniController extends Controller
 
     public function index(Request $request)
     {   
-        $alumni = Alumni::all();
+        $alumni = Alumni::orderBy('jurusan_id', 'desc')->get();
         
         if (!empty(request()->kerja)){
-        $alumni = alumni::where('kerja',request()->kerja)->get();        
+        $alumni = alumni::where('kerja',request()->kerja)->orderBy('jurusan_id', 'desc')->get();        
         }
 
         if (!empty(request()->jurusan_id)){
-        $alumni = alumni::where('jurusan_id',request()->jurusan_id)->get();        
+        $alumni = alumni::where('jurusan_id',request()->jurusan_id)->orderBy('jurusan_id', 'desc')->get();        
         }
         
         $jurusan = Jurusan::all();   

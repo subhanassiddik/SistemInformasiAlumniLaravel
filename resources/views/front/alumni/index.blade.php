@@ -37,7 +37,7 @@
                     </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Filter</button>
-                </class=>
+                </form>
           </div>
         </div>
       </div>
@@ -101,9 +101,25 @@
     $('#dataTable').DataTable({
         dom:'lBfrtip',
         buttons: [
-          'copy','excel', 'pdf','searchPanes',
+          'copy','searchPanes',
+  
+            {
+                extend: 'excelHtml5',
+                exportOptions: {
+                    columns: ':visible'
+                },
+            },
+            {
+                extend: 'pdfHtml5',
+                orientation: 'potrait',
+                pageSize: 'A4',
+                exportOptions: {
+                    columns: ':visible'
+                },
+            },
             {
                 extend: 'print',
+                orientation: 'landscape',
                 exportOptions: {
                     columns: ':visible'
                 },

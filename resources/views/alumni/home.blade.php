@@ -102,7 +102,7 @@
                                     <h6><strong>{{ Auth::user()->jurusan_id !=null?Auth::user()->jurusan->jurusan:''}}</strong></h6>
                                     <small>Konsentrasi</small>
                                     <hr>
-                                    <h6><strong>2015{{ Auth::user()->angkatan }}</strong></h6>
+                                    <h6><strong>{{ Auth::user()->angkatan }}</strong></h6>
                                     <small>Angkatan</small>
                                     <hr>
                                     <h6><strong>{{ Auth::user()->ipk }}</strong></h6>
@@ -136,8 +136,8 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Nama</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="text" name="name" value="{{old('name')?old('name'):Auth::user()->name}}">
-                                        @error('nama')
+                                        <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" value="{{old('name')?old('name'):Auth::user()->name}}">
+                                        @error('name')
                                             <small class="form-text text-muted">{{$message}}</small>
                                         @enderror
                                     </div>
@@ -145,13 +145,13 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Nim</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="number" name="nim" value="{{Auth::user()->nim}}" readonly>
+                                        <input class="form-control @error('nim') is-invalid @enderror" type="number" name="nim" value="{{Auth::user()->nim}}" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Judul Tugas Akhir</label>
                                     <div class="col-lg-9">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="tugas_akhir">{{old('tugas_akhir')?old('tugas_akhir'):Auth::user()->tugas_akhir}}</textarea>
+                                    <textarea class="form-control @error('tugas_akhir') is-invalid @enderror" id="exampleFormControlTextarea1" rows="3" name="tugas_akhir">{{old('tugas_akhir')?old('tugas_akhir'):Auth::user()->tugas_akhir}}</textarea>
                                     @error('tugas_akhir')
                                         <small class="form-text text-muted">{{$message}}</small>
                                     @enderror
@@ -160,7 +160,7 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Email</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" name="email" type="email" value="{{ old('email')?old('email'):Auth::user()->email }}">
+                                        <input class="form-control @error('email') is-invalid @enderror" name="email" type="email" value="{{ old('email')?old('email'):Auth::user()->email }}">
                                         @error('email')
                                             <small class="form-text text-muted">{{$message}}</small>
                                         @enderror
@@ -169,13 +169,13 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Change profile</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="file" name="photo" value="{{Auth::user()->photo}}">
+                                        <input class="form-control @error('photo') is-invalid @enderror" type="file" name="photo" value="{{Auth::user()->photo}}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Telepon</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="number" name="telepon" value="{{ old('telepon')?old('telepon'):Auth::user()->telepon }}">
+                                        <input class="form-control @error('telepon') is-invalid @enderror" type="number" name="telepon" value="{{ old('telepon')?old('telepon'):Auth::user()->telepon }}">
                                         @error('telepon')
                                             <small class="form-text text-muted">{{$message}}</small>
                                         @enderror
@@ -184,7 +184,7 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">alamat</label>
                                     <div class="col-lg-9">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="alamat">{{ old('alamat')?old('alamat'):Auth::user()->alamat }}</textarea>
+                                    <textarea class="form-control @error('alamat') is-invalid @enderror" id="exampleFormControlTextarea1" rows="3" name="alamat">{{ old('alamat')?old('alamat'):Auth::user()->alamat }}</textarea>
                                     @error('alamat')
                                             <small class="form-text text-muted">{{$message}}</small>
                                     @enderror
@@ -223,7 +223,7 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Angkatan</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="number" name="angkatan" value="{{ old('angkatan')?old('angkatan'):Auth::user()->angkatan }}">
+                                        <input class="form-control @error('angkatan') is-invalid @enderror" type="number" name="angkatan" value="{{ old('angkatan')?old('angkatan'):Auth::user()->angkatan }}">
                                         @error('angkatan')
                                             <small class="form-text text-muted">{{$message}}</small>
                                         @enderror
@@ -232,7 +232,7 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Ipk</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="text" name="ipk" value="{{old('ipk')?old('ipk'): Auth::user()->ipk }}">
+                                        <input class="form-control @error('ipk') is-invalid @enderror" type="text" name="ipk" value="{{old('ipk')?old('ipk'): Auth::user()->ipk }}">
                                         @error('ipk')
                                             <small class="form-text text-muted">{{$message}}</small>
                                         @enderror
@@ -241,7 +241,7 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Tahun Lulus</label>
                                     <div class="col-lg-5">
-                                        <select name="tahun_lulus" id="" class="form-control">
+                                        <select name="tahun_lulus" id="" class="form-control @error('tahun_lulus') is-invalid @enderror">
                                             <option value="">--Pilh Tahun Lulus--</option>
                                             @foreach($lulus as $l)
                                                 <option value="{{$l->tahun}}" {{  Auth::user()->tahun_lulus == $l->tahun ? 'selected':'' }}>{{$l->tahun}}</option>
@@ -255,7 +255,7 @@
                                 <div class="form-group row">
                                 <label class="col-lg-3 col-form-label form-control-label">Status</label>
                                 <div class="col-lg-5">
-                                    <select name="status" id="" class="form-control">
+                                    <select name="status" id="" class="form-control @error('status') is-invalid @enderror">
                                         <option value="">--Pilh Status--</option>
                                         <option value="1" {{  Auth::user()->kerja == 1 ? 'selected':'' }}>Bekerja</option>
                                         <option value="2" {{  Auth::user()->kerja == 2 ? 'selected':'' }}>Belum Bekerja</option>
@@ -268,7 +268,7 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Tahun Mulai Kerja</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" name="tahun_mulai_kerja" type="number" value="{{ old('tahun_mulai_kerja')?old('tahun_mulai_kerja'):Auth::user()->tahun_mulai_kerja }}">
+                                        <input class="form-control @error('tahun_mulai_kerja') is-invalid @enderror" name="tahun_mulai_kerja" type="number" value="{{ old('tahun_mulai_kerja')?old('tahun_mulai_kerja'):Auth::user()->tahun_mulai_kerja }}">
                                         @error('tahun_mulai_kerja')
                                             <small class="form-text text-muted">{{$message}}</small>
                                         @enderror
@@ -277,8 +277,8 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Pekerjaan</label>
                                     <div class="col-lg-5">
-                                        <select name="pekerjaan_id" id="" class="form-control">
-                                            <option value="">--Pilh Tahun Lulus--</option>
+                                        <select name="pekerjaan_id" id="" class="form-control @error('pekerjaan_id') is-invalid @enderror">
+                                            <option value="">--Pilh Pekerjaan--</option>
                                             @foreach($pekerjaan as $p)
                                                 <option value="{{$p->id}}" {{  Auth::user()->pekerjaan_id == $p->id ? 'selected':'' }}>{{$p->name}}</option>
                                             @endforeach
@@ -291,7 +291,7 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Posisi</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="text" name="posisi" value="{{ old('posisi')?old('posisi'):Auth::user()->posisi }}">
+                                        <input class="form-control @error('posisi') is-invalid @enderror" type="text" name="posisi" value="{{ old('posisi')?old('posisi'):Auth::user()->posisi }}">
                                         @error('posisi')
                                             <small class="form-text text-muted">{{$message}}</small>
                                         @enderror
@@ -300,7 +300,7 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Tanggung Jawab Khusus</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="text" name="tanggung_jawab_khusus" value="{{ old('tanggung_jawab_khusus')?old('tanggung_jawab_khusus'):Auth::user()->tanggung_jawab_khusus }}">
+                                        <input class="form-control @error('tanggung_jawab_khusus') is-invalid @enderror" type="text" name="tanggung_jawab_khusus" value="{{ old('tanggung_jawab_khusus')?old('tanggung_jawab_khusus'):Auth::user()->tanggung_jawab_khusus }}">
                                         @error('tanggung_jawab_khusus')
                                             <small class="form-text text-muted">{{$message}}</small>
                                         @enderror
@@ -310,7 +310,7 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label">Password</label>
                                         <div class="col-lg-9">
-                                            <input class="form-control" type="password" name="password" placeholder="**********">
+                                            <input class="form-control @error('password') is-invalid @enderror" type="password" name="password" placeholder="**********">
                                             @error('password')
                                                 <small class="form-text text-muted">{{$message}}</small>
                                             @enderror
@@ -319,7 +319,7 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
                                         <div class="col-lg-9">
-                                            <input class="form-control" type="password" name="password_confirmation" placeholder="**********">
+                                            <input class="form-control @error('password_confirmation') is-invalid @enderror" type="password" name="password_confirmation" placeholder="**********">
                                         </div>
                                     </div>
                                     <small class="text-danger">* Jangan Di isi jika tidak ingin mengubah Password</small>

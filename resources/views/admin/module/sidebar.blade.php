@@ -86,10 +86,10 @@
         <div id="cetak" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Cetak cepat:</h6>
-            <a class="collapse-item" href="{{route('admin.laporan_alumni')}}">Laporan Alumni</a>
-            <a class="collapse-item" href="{{route('admin.laporan_jurusan')}}">Laporan Jurusan</a>
-            <a class="collapse-item" href="{{route('admin.laporan_prodi')}}">Laporan Prodi</a>
-            <a class="collapse-item" href="{{route('admin.laporan_angkatan')}}">Laporan Angkatan/Alumni</a>
+            <a target="_blank" class="collapse-item" href="{{route('admin.laporan_alumni')}}">Laporan Alumni</a>
+            <a target="_blank" class="collapse-item" href="{{route('admin.laporan_jurusan')}}">Laporan Jurusan</a>
+            <a target="_blank" class="collapse-item" href="{{route('admin.laporan_prodi')}}">Laporan Prodi</a>
+            <a target="_blank" class="collapse-item" href="{{route('admin.laporan_angkatan')}}">Laporan Angkatan/Alumni</a>
           </div>
         </div>
       </li>

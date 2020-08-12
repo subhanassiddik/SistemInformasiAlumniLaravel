@@ -6,9 +6,6 @@
             Alumni Polinas
         </a>
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Panduan Login <span class="sr-only">(current)</span></a>
-            </li>
             <li class="nav-item ">
                 <a class="nav-link" href="{{route('front.ikatan_alumni.index')}}"><i class="fas fa-fw fa-newspaper"></i>  Berita Alumni <span
                         class="sr-only">(current)</span></a>

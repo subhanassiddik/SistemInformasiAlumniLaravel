@@ -75,7 +75,12 @@ Route::group(['namespace'=>'Front','as' => 'front.'], function () {
 
 Route::group(['middleware' => 'web'], function () {
     
-    Auth::routes(['register'=>'false']); 
+    Auth::routes([
+
+        'register' => false
+        
+        ]);
+     
     Route::get('/user/logout', 'Auth\LoginController@logoutUser')->name('user.logout');
     
     Route::group(['prefix'=>'alumni','namespace' => 'Alumni','as'=>'alumni.'], function () {

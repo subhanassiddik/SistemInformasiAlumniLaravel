@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Alumni;
+use App\Jurusan;
 use App\Imports\AlumniImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
@@ -14,12 +15,19 @@ class AlumniController extends Controller
     public function index(Request $request)
     {   
 
-        if (!empty(request()->kerja))
-            $alumni = alumni::where('kerja',request()->kerja)->get();
-        else
-            $alumni = alumni::all();
-            
-        return view('admin.alumni.index',compact('alumni'));
+        $alumni = alumni::all();
+
+        if (!empty(request()->kerja)){
+            $alumni = alumni::where('kerja',request()->kerja)->orderBy('jurusan_id', 'desc')->get();        
+        }
+    
+        if (!empty(request()->jurusan_id)){
+            $alumni = alumni::where('jurusan_id',request()->jurusan_id)->orderBy('jurusan_id', 'desc')->get();        
+        }
+    
+        $jurusan = Jurusan::orderBy('jurusan', 'desc')->get();
+    
+        return view('admin.alumni.index',compact('alumni','jurusan'));
     }
 
     public function create()
